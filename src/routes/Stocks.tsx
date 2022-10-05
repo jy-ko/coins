@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-interface ICoin {
-    id: string,
-    name: string,
-    symbol: string,
-    rank: number,
-    is_new: boolean,
-    is_active: boolean,
-    type: string,
-}
+// interface ICoin {
+//     id: string,
+//     name: string,
+//     symbol: string,
+//     rank: number,
+//     is_new: boolean,
+//     is_active: boolean,
+//     type: string,
+// }
 
 const Container = styled.div`
   padding: 50px 100px;
@@ -18,10 +18,10 @@ const Container = styled.div`
 const Header = styled.header`
   display: flex;
 `;
-const CoinsList = styled.ul`
+const StocksList = styled.ul`
   margin: 10px 0px;
 `;
-const Coin = styled.li`
+const Stock = styled.li`
   font-size: 1.5rem;
   background-color: white;
   color: ${(props) => props.theme.bgColor};
@@ -54,35 +54,27 @@ const Title = styled.h1`
 const Loader = styled.div`
 `
 
-function Coins() {
-  const [coins, setCoins] = useState<ICoin[]>([]);
+function Stocks() {
+  const [stocks, setStocks] = useState();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     (async() => {
-        const res = await fetch("https://api.coinpaprika.com/v1/coins")
-        const json = await res.json();
-        setCoins(json.slice(0,100))
+        // const res = await fetch(`https://www.alphavantage.co/query?function=LISTING_STATUS&apikey=${process.env.REACT_APP_ALPHAVANTAGE_API_KEY}`)
+        // const json = await res.text()
+        // const data = await res.json();
+        console.log(json);
         setLoading(false);
     })();
   },[])
   return (
     <Container>
       <Header>
-        <Title>Coins</Title>
+        <Title>Stocks</Title>
       </Header>
       {loading ? (<Loader>"Loading..."</Loader>) :
-      (<CoinsList>
-        {coins.map((coin) => (
-          <Coin key={coin.id}>
-            <Link to={`/${coin.id}`} state={coin.name}>
-            <Img
-                  src={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}/>
-                {coin.name} &rarr;
-            </Link></Coin>
-        ))}
-      </CoinsList>)
+        (stocks)
        }
     </Container>
   );
 }
-export default Coins;
+export default Stocks;
