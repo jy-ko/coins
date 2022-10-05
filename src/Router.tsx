@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Coin from "./routes/Coin";
-import Coins from "./routes/Coins";
+import Stock from "./routes/Stock";
+import Stocks from "./routes/Stocks";
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Coins />}/>
-        <Route path="/:coinId" element={<Coin />}/>
+        <Route path="/" element={<Stocks />}/>
+        <Route path="/:stockId" element={<Stock />}/>
       </Routes>
     </BrowserRouter>
   );
