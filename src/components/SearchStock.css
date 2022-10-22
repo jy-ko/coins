@@ -1,0 +1,63 @@
+.form {
+  display: grid;
+  margin-top: 20px;
+}
+
+.label {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+}
+
+.input {
+  font-size: 1.6rem;
+  padding: 0.5rem 2rem;
+  line-height: 2.8rem;
+  border-radius: 3.2rem;
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  padding: 1rem 2rem;
+  border: 1px solid white;
+  border-radius: 3.2rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 250ms;
+}
+.card-list {
+  height: 100%;
+  margin-top: 2rem;
+  margin: 2rem auto;
+}
+
+.card {
+  border: 1px solid #ddd;
+  margin: 1rem;
+  border-radius: 2rem;
+  padding: 0.7em;
+  width: 100%;
+  
+}
+.card:hover {
+    background-color: #40be55;
+    color: #ddd;
+    cursor: pointer;
+}
+
+@media (min-width: 786px) {
+  .form {
+    grid-template-columns: auto 1fr auto;
+    grid-gap: 1rem;
+    align-items: center;
+  }
+  .input {
+    margin-bottom: 0;
+  }
+  .card-list {
+    width: 60%;
+  }
+}

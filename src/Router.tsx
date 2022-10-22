@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Stock from "./routes/Stock";
-import Stocks from "./routes/Stocks";
+import Stocks from "./routes/Home";
 function Router() {
   return (
     <BrowserRouter>

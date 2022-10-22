@@ -1,5 +1,10 @@
-import Router from './Router';
+import Router from "./Router";
 import { createGlobalStyle } from "styled-components";
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./theme";
+import { useState } from "react";
+import Toggle from "./components/Toggler";
+import  {useDarkMode} from "./components/useDarkMode"
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -55,7 +60,7 @@ table {
 body {
   font-family: 'Source Sans Pro', sans-serif;
   background-color:${(props) => props.theme.bgColor};
-  color:${(props) => props.theme.textColor}
+  color:${({theme}) => theme.textColor}
 }
 a {
   text-decoration:none;
@@ -63,11 +68,17 @@ a {
 }
 `;
 function App() {
+  const [theme, themeToggler] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
   return (
-    <>
-      <GlobalStyle />
-      <Router />
-    </>
+    <ThemeProvider theme={themeMode}>
+      <>
+        <GlobalStyle />
+        <Toggle theme={theme} toggleTheme={themeToggler} />
+        <Router />
+      </>
+    </ThemeProvider>
   );
 }
 

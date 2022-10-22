@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import SearchStock from "../components/SearchStock";
+import Favourites from "../components/Favourites";
 
 // interface ICoin {
 //     id: string,
@@ -14,9 +16,6 @@ import styled from "styled-components";
 
 const Container = styled.div`
   padding: 50px 100px;
-`;
-const Header = styled.header`
-  display: flex;
 `;
 const StocksList = styled.ul`
   margin: 10px 0px;
@@ -46,35 +45,24 @@ const Img = styled.img`
 
 const Title = styled.h1`
   font-size: 48px;
-  display: flex;
-  margin: 0 auto;
   color: ${(props) => props.theme.accentColor};
+  text-align: center;
 `;
 
-const Loader = styled.div`
-`
-
-function Stocks() {
+function Home() {
   const [stocks, setStocks] = useState();
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   useEffect(() => {
     (async() => {
-        // const res = await fetch(`https://www.alphavantage.co/query?function=LISTING_STATUS&apikey=${process.env.REACT_APP_ALPHAVANTAGE_API_KEY}`)
-        // const json = await res.text()
-        // const data = await res.json();
-        console.log(json);
-        setLoading(false);
+
     })();
   },[])
   return (
     <Container>
-      <Header>
         <Title>Stocks</Title>
-      </Header>
-      {loading ? (<Loader>"Loading..."</Loader>) :
-        (stocks)
-       }
+        <SearchStock></SearchStock>
+        <Favourites></Favourites>
     </Container>
   );
 }
-export default Stocks;
+export default Home;
