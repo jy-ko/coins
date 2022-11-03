@@ -2,7 +2,6 @@ import Router from "./Router";
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./theme";
-import { useState } from "react";
 import Toggle from "./components/Toggler";
 import  {useDarkMode} from "./components/useDarkMode"
 
@@ -58,7 +57,7 @@ table {
   box-sizing: border-box;
 }
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   background-color:${(props) => props.theme.bgColor};
   color:${({theme}) => theme.textColor}
 }

@@ -1,11 +1,15 @@
 import "./SearchStock.css";
-import styled from "styled-components";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-function SearchStock() {
+const SearchStock = ({favourites}) => {
   const [query, setQuery] = useState("");
   const [stocks, setStocks] = useState([]);
-  const searchStock = async (e: React.FormEvent) => {
+  const searchStock = async (e) => {
+
+    if(query == "" ) {
+      setQuery("aapl")
+    }
     e.preventDefault();
     const url = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${query}&apikey=${process.env.REACT_APP_ALPHAVANTAGE_API_KEY}`;
     try {
@@ -17,6 +21,12 @@ function SearchStock() {
       console.log(err);
     }
   };
+
+  function handleSubmit(e){
+    e.preventDefault();
+    // console.log("hi");
+  }
+
   return (
     <>
       <form className="form" onSubmit={searchStock}>
@@ -37,9 +47,14 @@ function SearchStock() {
       </form>
        <div className="card-list">
                 {stocks.map((stock, index) => (
+                  <Link to={`${stock["1. symbol"]}`}>
                     <div className="card" key={index}>
-                      {stock["1. symbol"]} | {stock["2. name"]}
+                      <div className="card-left">
+                        {stock["1. symbol"]} | {stock["2. name"]} 
+                      </div>
+                      {/* <span className="star" style={styles.fav} onClick={handleFavourite(index)} value={index}>&#9734;</span> */}
                     </div>
+                  </Link>
                 ))} 
       </div>
     </>
