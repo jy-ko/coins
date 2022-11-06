@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import HomeButton from "../components/HomeButton";
 import Chart from "./Chart";
-import Price from "./Price";
+import Price from "./Fundamentals";
 
 const Title = styled.h1`
   font-size: 48px;
