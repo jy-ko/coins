@@ -46,7 +46,7 @@
   cursor: pointer;
 }
 .card:hover {
-  border: 1px solid #40be55;
+  border: 1px solid "#9c88ff";
 }
 .star:hover {
   cursor: pointer;

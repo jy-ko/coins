@@ -2,7 +2,7 @@ import "./SearchStock.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const SearchStock = ({favourites}) => {
+const SearchStock = () => {
   const [query, setQuery] = useState("");
   const [stocks, setStocks] = useState([]);
   const searchStock = async (e) => {
@@ -21,11 +21,6 @@ const SearchStock = ({favourites}) => {
       console.log(err);
     }
   };
-
-  function handleSubmit(e){
-    e.preventDefault();
-    // console.log("hi");
-  }
 
   return (
     <>
@@ -47,12 +42,11 @@ const SearchStock = ({favourites}) => {
       </form>
        <div className="card-list">
                 {stocks.map((stock, index) => (
-                  <Link to={`${stock["1. symbol"]}`}>
-                    <div className="card" key={index}>
+                  <Link to={`${stock["1. symbol"]}`} state={`${stock["1. symbol"]}`} key={index}>
+                    <div className="card" >
                       <div className="card-left">
                         {stock["1. symbol"]} | {stock["2. name"]} 
                       </div>
-                      {/* <span className="star" style={styles.fav} onClick={handleFavourite(index)} value={index}>&#9734;</span> */}
                     </div>
                   </Link>
                 ))} 

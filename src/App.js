@@ -4,6 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./theme";
 import Toggle from "./components/Toggler";
 import  {useDarkMode} from "./components/useDarkMode"
+import Footer from "./components/Footer";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -66,6 +67,7 @@ a {
   color: inherit;
 }
 `;
+
 function App() {
   const [theme, themeToggler] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
@@ -74,8 +76,9 @@ function App() {
     <ThemeProvider theme={themeMode}>
       <>
         <GlobalStyle />
-        <Toggle theme={theme} toggleTheme={themeToggler} />
+          <Toggle theme={theme} toggleTheme={themeToggler} />
         <Router />
+        <Footer />
       </>
     </ThemeProvider>
   );

@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import HomeButton from "../components/HomeButton";
 
 const Title = styled.h1`
   font-size: 48px;
   color: ${(props) => props.theme.accentColor};
+  text-align: center;
+  margin: 8px;
 `;
 
 const Loader = styled.span`
@@ -21,7 +25,7 @@ const Container = styled.div`
 const Overview = styled.div`
   display: flex;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${(props) => props.theme.menuColor};
   padding: 10px 20px;
   border-radius: 10px;
 `;
@@ -55,8 +59,7 @@ function Detail() {
   const { stockId } = useParams();
   const { state } = useLocation();
   const [overview, setOverview] = useState({});
-  const [priceInfo, setPriceInfo] = useState();
-  console.log(state);
+  const [priceInfo, setPriceInfo] = useState("");
   useEffect(() => {
     (async () => {
       const overviewData = await (
@@ -67,20 +70,23 @@ function Detail() {
 
       const priceData = await (
         await fetch(
-          `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stockId}&interval=5min&apikey=${process.env.REACT_APP_ALPHAVANTAGE_API_KEY}`
+          `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockId}&apikey=${process.env.REACT_APP_ALPHAVANTAGE_API_KEY}`
         )
       ).json();
+      // console.log(priceData["Time Series (Daily)"])
       if (priceData) {
-        const lastPriceKey = Object.keys(priceData["Time Series (Daily)"]).sort().pop();
-        setPriceInfo(priceData["Time Series (Daily)"][lastPriceKey])
+        const lastPrice = Object.values(priceData["Time Series (Daily)"]).shift();
+        setPriceInfo(lastPrice)
       }
-      // setPriceInfo(priceData["Time Series (Daily)"][lastPriceKey])
       setOverview(overviewData);
       setLoading(false);
     })();
-  }, []);
+  }, [stockId]);
   return (
     <Container>
+      <Link to="/">
+        <HomeButton/>
+      </Link>
       <Header>
         <Title>
           {overview.Name}
@@ -93,7 +99,7 @@ function Detail() {
           <Overview>
             <OverviewItem>
               <span>Price:</span>
-              <span>{priceInfo["1. open"]}</span>
+              <span>{ priceInfo? priceInfo["4. close"] : ""}</span>
             </OverviewItem>
             <OverviewItem>
               <span>Symbol:</span>
@@ -101,7 +107,7 @@ function Detail() {
 
             </OverviewItem>
             <OverviewItem>
-              <span>PERatio</span>
+              <span>PER:</span>
               <span>{overview.PERatio}</span>
             </OverviewItem>
           </Overview>
