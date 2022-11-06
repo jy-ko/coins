@@ -2,20 +2,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import SearchStock from "../components/SearchStock";
-import Favourites from "../components/Favourites";
-
-// interface ICoin {
-//     id: string,
-//     name: string,
-//     symbol: string,
-//     rank: number,
-//     is_new: boolean,
-//     is_active: boolean,
-//     type: string,
-// }
 
 const Container = styled.div`
-  padding: 50px 100px;
+  width: 70%;
+  margin: 0 auto;
+  padding: 2rem;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 const StocksList = styled.ul`
   margin: 10px 0px;
@@ -50,18 +44,10 @@ const Title = styled.h1`
 `;
 
 function Home() {
-  const [stocks, setStocks] = useState();
-  // const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    (async() => {
-
-    })();
-  },[])
   return (
     <Container>
         <Title>Stocks</Title>
         <SearchStock></SearchStock>
-        <Favourites></Favourites>
     </Container>
   );
 }
