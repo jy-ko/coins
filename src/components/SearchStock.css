@@ -12,7 +12,7 @@
 .input {
   font-size: 1.6rem;
   padding: 0.5rem 2rem;
-  border-radius: 3.2rem;
+  border-radius: 1rem;
   border: 1px solid #ddd;
   margin-bottom: 1rem;
 }
@@ -22,7 +22,7 @@
   color: white;
   padding: 0.5rem 2rem;
   border: 1px solid white;
-  border-radius: 3.2rem;
+  border-radius: 1rem;
   font-size: 1.6rem;
   cursor: pointer;
   transition: background-color 250ms;
@@ -35,7 +35,7 @@
 .card {
   border: 1px solid #ddd;
   font-size: 1.4rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   padding: 0.7em;
   margin-bottom: 1rem;
   width: 100%;

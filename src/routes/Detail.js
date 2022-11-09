@@ -22,6 +22,7 @@ const Container = styled.div`
   padding: 40px;
   max-width: 480px;
   margin: 0 auto;
+  padding-bottom: 300px;
 `;
 
 const Overview = styled.div`
@@ -91,19 +92,22 @@ function Detail() {
         )
       ).json();
 
+      if(overviewData) {
+        setOverview(overviewData);
+      }
+
       const priceData = await (
         await fetch(
-          `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockId}&apikey=${process.env.REACT_APP_ALPHAVANTAGE_API_KEY}`
+          `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stockId}&interval=5min&apikey=${process.env.REACT_APP_ALPHAVANTAGE_API_KEY}`
         )
       ).json();
+
+      const lastPrice = Object.values(
+        priceData["Time Series (5min)"]
+      ).shift();
+      
+      setPriceInfo(lastPrice["4. close"]);
       setPriceDataAll(priceData)
-      if (priceData) {
-        const lastPrice = Object.values(
-          priceData["Time Series (Daily)"]
-        ).shift();
-        setPriceInfo(lastPrice);
-      }
-      setOverview(overviewData);
       setLoading(false);
     })();
   }, [stockId]);
@@ -122,7 +126,7 @@ function Detail() {
           <Overview>
             <OverviewItem>
               <span>Price:</span>
-              <span>{priceInfo ? priceInfo["4. close"] : ""}</span>
+              <span>{priceInfo ? priceInfo : ""}</span>
             </OverviewItem>
             <OverviewItem>
               <span>Symbol:</span>
@@ -155,7 +159,7 @@ function Detail() {
             </Tab>
           </Tabs>
           <Routes>
-            <Route path="chart" element={<Chart stockId={stockId} priceData={priceDataAll} />} />
+            <Route path="chart" element={<Chart priceData={priceDataAll} />} />
             <Route path="price" element={<Price />} />
           </Routes>
         </>

@@ -1,5 +1,4 @@
 import {
-  Box,
   Container,
   Icon
 } from "./FooterStyles";
@@ -9,28 +8,23 @@ import { faBookmark } from '@fortawesome/free-regular-svg-icons'
 
 const Footer = () => {
   return (
-    <Box>
-      <h1
-        style={{ color: "green", textAlign: "center", marginTop: "10px" }}
-      ></h1>
       <Container>
         <Icon>
-          <a target="_blank" href="https://www.alphavantage.co/">
+          <a target="_blank" rel="noreferrer" href="https://www.alphavantage.co/">
             <FontAwesomeIcon icon={faBookmark} />
           </a>
         </Icon>
         <Icon>
-          <a target="_blank" href="https:/github.com/jy-ko">
+          <a target="_blank" rel="noreferrer"  href="https:/github.com/jy-ko">
             <FontAwesomeIcon icon={faGithub} />
           </a>
         </Icon>
         <Icon>
-          <a target="_blank" href="https://www.linkedin.com/in/jiyoung-ko/">
+          <a target="_blank" rel="noreferrer"  href="https://www.linkedin.com/in/jiyoung-ko/">
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
         </Icon>
       </Container>
-    </Box>
   );
 };
 export default Footer;
