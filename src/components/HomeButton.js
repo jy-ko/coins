@@ -1,7 +1,6 @@
 import React from "react";
 import Icon from "../homeIcon.png";
 import styled from "styled-components";
-import { Link, Route, Router } from "react-router-dom";
 
 const Button = styled.button`
   background: ${({ theme }) => theme.bgColor};
@@ -20,7 +19,7 @@ const Button = styled.button`
 const HomeButton = () => {
   return (
     <Button>
-      <img src={Icon} />
+      <img src={Icon} alt="home icon" />
     </Button>
   );
 };

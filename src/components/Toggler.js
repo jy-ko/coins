@@ -20,7 +20,7 @@ const Button = styled.button`
 const Toggle = ({theme,  toggleTheme }) => {
     return (
         <Button onClick={toggleTheme} >
-          <img src={Icon}/>
+          <img src={Icon} alt="darkmode icon"/>
         </Button>
     );
 };

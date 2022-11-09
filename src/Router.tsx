@@ -8,8 +8,6 @@ function Router() {
       <Routes>
         <Route path="/" element={<Stocks />}/>
         <Route path="/:stockId/*" element={<Detail />}/>
-        {/* <Route path="/:stockId/*" element={<Detail />}/> */}
-
       </Routes>
     </BrowserRouter>
   );
