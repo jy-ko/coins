@@ -6,8 +6,8 @@ const Chart = ({ priceData }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [ohlcv, setOhlcv] = useState();
   const raw = priceData["Time Series (5min)"];
-
   useEffect(() => {
+
     const priceArray = Object.keys(raw).map((key) => [
       key,
       +raw[key]["1. open"],
@@ -19,7 +19,7 @@ const Chart = ({ priceData }) => {
     setOhlcv(priceArray);
     setIsLoading(false);
     // setDate(priceArray[0].slice(0,11))
-  }, []);
+  }, [raw]);
 
   const chartData = ohlcv?.map((day) => {
       return {
