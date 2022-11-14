@@ -38,6 +38,7 @@ s or guidance for others attempting this or something similar.
 - render a table that shows in-depth financials in the second tab
 - optimize api calls
 - typescript
+- tests
 
 - Maybe add a feature to allow users to save their favourites 
 
