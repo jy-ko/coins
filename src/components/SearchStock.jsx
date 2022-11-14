@@ -36,7 +36,7 @@ const SearchStock = () => {
           name="query"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="i.e. AAPL"
+          placeholder="e.g. AAPL or Apple"
         />
         <button type="submit" className="button">
           Search

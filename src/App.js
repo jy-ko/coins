@@ -59,8 +59,10 @@ table {
 }
 body {
   font-family: 'Josefin Sans', sans-serif;
+  position: relative;
   background-color:${(props) => props.theme.bgColor};
-  color:${({theme}) => theme.textColor}
+  color:${({theme}) => theme.textColor};
+  min-height: 100vh;
 }
 a {
   text-decoration:none;

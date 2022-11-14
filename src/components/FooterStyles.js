@@ -5,10 +5,12 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
   padding: 20px;
   background: ${(props) => props.theme.menuColor};
   width: 100%;
+  margin-top: auto;
+  bottom: 0;
+  position: absolute;
 `;
 
 
