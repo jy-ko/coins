@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# Stock Search React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Project Link](https://comfy-creponne-27fd07.netlify.app/)
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+I created the app to practice using react hooks and react-router. 
 
-### `npm start`
+![Screenshot 2022-11-14 at 7 59 44 PM](https://user-images.githubusercontent.com/53289659/201732933-9029cf3c-c651-4b13-be7d-c36771c2c33d.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Screenshot 2022-11-14 at 8 01 39 PM](https://user-images.githubusercontent.com/53289659/201733070-d33b98fb-cf75-42a3-a745-967e9e9a222f.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<!-- TODO: Add a screenshot of the live project.
+    1. Link to a 'live demo.'
+    2. Describe your overall experience in a couple of sentences.
+    3. List a few specific technical things that you learned or improved on.
+    4. Share any other tip
+s or guidance for others attempting this or something similar.
+ -->
 
-### `npm test`
+### Built With
+- React, styled components 
+- [ApexCharts](https://apexcharts.com/docs/installation/)
+- API: [Alphavantage](https://www.alphavantage.co/documentation/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- TODO: List any MAJOR libraries/frameworks (e.g. React, Tailwind) with links to their homepages. -->
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- A user can search a stock by the ticker symbol or the company name 
+- On choosing a stock, the user can see basic information about the company along with a few financials
+- Then, the user can click on either one of the tabs to see a candlestick chart or a financials table.
+- A user can switch on/off dark mode (defaults to dark mode)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Improvements to make
+- x axis labels
+- render a table that shows in-depth financials in the second tab
+- optimize api calls
+- typescript
 
-### `npm run eject`
+- Maybe add a feature to allow users to save their favourites 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<!-- TODO: List what specific 'user problems' that this application solves. -->
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- TODO: List any blog posts, tutorials or plugins that you may have used to complete the project. Only list those that had a significant impact. Obviously, we all 'Google' stuff while working on our things, but maybe something in particular stood out as a 'major contributor' to your skill set for this project. -->
